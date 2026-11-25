@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Parkwise | Smart Parking</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<aside>
+  <div class="brand"><span class="logo">P</span><div><b>Parkwise</b><small>Smart parking</small></div></div>
+  <nav>
+    <a data-v="dash" class="on">Dashboard</a><a data-v="slots">Slot management</a>
+    <a data-v="entry">Vehicle entry</a><a data-v="exit">Exit &amp; billing</a><a data-v="recs">Parking records</a>
+  </nav>
+  <div class="ok"><i></i> System operational<small>Running on the C backend</small></div>
+</aside>
+<main>
+  <header><h1 id="title">Dashboard</h1><span id="clock"></span></header>
+
+  <section id="dash" class="view">
+    <div class="stats" id="stats"></div>
+    <div class="card"><h2>Parking occupancy</h2>
+      <div class="bar"><div id="fill"></div></div>
+      <p class="legend"><span class="g">Available</span> <span class="r">Occupied</span></p>
+      <div class="grid" id="grid1"></div></div>
+  </section>
+
+  <section id="slots" class="view" hidden>
+    <div class="card"><h2>All parking slots</h2><p class="hint">Click an occupied slot to bill that vehicle.</p>
+      <div class="grid" id="grid2"></div></div>
+  </section>
+
+  <section id="entry" class="view" hidden>
+    <div class="card narrow"><h2>Register vehicle</h2>
+      <form id="fEntry">
+        <label>Registration number<input id="eplate" placeholder="TN 09 AB 1234" required></label>
+        <label>Vehicle type<select id="etype"><option value="car">Car (₹30 per hour)</option>
+          <option value="bike">Bike (₹10 per hour)</option><option value="truck">Truck (₹60 per hour)</option></select></label>
+        <button>Allocate slot</button>
+      </form><div id="eres"></div></div>
+  </section>
+
+  <section id="exit" class="view" hidden>
+    <div class="card narrow"><h2>Process exit</h2>
+      <form id="fExit">
+        <label>Registration number<input id="xplate" placeholder="TN09AB1234" required></label>
+        <button>Calculate bill and release slot</button>
+      </form><div id="xres"></div></div>
+  </section>
+
+  <section id="recs" class="view" hidden>
+    <div class="card"><h2>Parking records</h2>
+      <div class="scroll"><table><thead><tr><th>ID</th><th>Vehicle</th><th>Type</th><th>Slot</th><th>Entry</th><th>Exit</th><th>Amount</th></tr></thead>
+      <tbody id="rows"></tbody></table></div>
+      <button class="ghost" id="reset">Clear all records</button></div>
+  </section>
+</main>
+<script src="app.js"></script>
+</body></html>
